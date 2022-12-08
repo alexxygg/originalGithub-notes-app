@@ -1,0 +1,301 @@
+.App {
+  font-family: "Lato", sans-serif;
+}
+button {
+  /* background-color: black; */
+  background-color: transparent;
+  color: black;
+  border: none;
+  width: 75%;
+  font-size: medium;
+  font-weight: 900;
+}
+
+.linksNoDeco {
+  color: ghostwhite;
+  text-decoration: none;
+}
+
+button:hover {
+  transition: 0.4s linear background-color;
+}
+.all,
+.new,
+.elegant {
+  background: linear-gradient(
+    90deg,
+    rgb(4, 238, 81) 0%,
+    rgb(14, 38, 181) 53%,
+    rgb(40, 1, 181) 60%,
+    rgb(140, 38, 81) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient 45s ease infinite;
+}
+.elegant {
+  color: ghostwhite;
+  border: solid black;
+}
+.new {
+  color: ghostwhite;
+  border: solid black 0.5vh;
+  bottom: 0;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  height: 5%;
+  width: 100%;
+}
+.new:hover {
+  border: solid black;
+  border-radius: 2rem;
+}
+
+.all {
+  /* display: flex;
+  flex-wrap: wrap; */
+  padding-bottom: 5vh;
+  -webkit-columns: 180px auto;
+  -moz-columns: 180px auto;
+  max-width: 100%;
+
+  margin: 2vh 0 0vh 0;
+  padding-top: 5vh;
+}
+
+.noteRow {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  font-weight: 500;
+  margin-top: 2vh;
+  min-width: 180px;
+  max-width: 180px;
+  min-height: min-content;
+  height: max-content;
+  display: inline-block;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+  padding: 5% 2%;
+  border: 0.2vh solid;
+  border-radius: 12px;
+  color: black;
+}
+.edit {
+  width: 125px;
+}
+.edit:hover {
+  background-color: rgba(255, 215, 0, 0.8);
+  color: black;
+  border: solid black;
+  border-radius: 2rem;
+}
+.delete:hover {
+  background-color: rgba(247, 99, 104, 0.8);
+  color: black;
+  border: solid black;
+  border-radius: 2rem;
+}
+.copyButton:hover {
+  background-color: rgba(4, 238, 81, 0.8);
+  color: black;
+  border: solid black;
+  border-radius: 2rem;
+}
+.redDivBg {
+  background-color: rgba(247, 99, 104, 0.8);
+}
+.yellowDivBg {
+  background-color: rgba(255, 215, 0, 0.8);
+}
+.greenDivBg {
+  background-color: rgba(4, 238, 81, 0.8);
+}
+.headerTitle {
+  padding: 0 5%;
+  color: black;
+  background-color: rgb(4, 238, 81);
+  width: max-content;
+  font-size: small;
+  font-weight: 900;
+  border: solid black;
+  border-radius: 2rem;
+  margin-right: 15px;
+}
+
+.idDIv,
+.titleDiv,
+.dateDiv,
+.noteDiv {
+  min-height: 3vh;
+  max-height: max-content;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+  padding: 0.5vh 0;
+  font-size: medium;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  margin-bottom: 1vh;
+  font-weight: 900;
+}
+
+body {
+  background: linear-gradient(-45deg, #0111df, #324cd8, #5b7fd6, #85b3d5);
+  background-size: 400% 400%;
+  animation: gradient 45s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+[contentEditable="true"]:empty:not(:focus):before {
+  content: attr(data-text);
+}
+.home {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: ghostwhite;
+  background-color: #0111df;
+  margin-top: 10vh;
+  padding: 1vh 0;
+  border-radius: 10px;
+}
+.home:hover {
+  border: solid ghostwhite;
+  color: ghostwhite;
+  border-radius: 2rem;
+}
+
+#copiedButton,
+#deleteConfirmation,
+#editConformation {
+  visibility: hidden;
+  color: black;
+  background-color: gold;
+  min-width: 250px;
+  margin-left: -125px;
+  border-radius: 2rem;
+  padding: 16px;
+  text-align: center;
+  left: 50%;
+  bottom: 30px;
+  z-index: 1;
+  position: fixed;
+  border: solid black;
+  font-weight: 900;
+}
+
+#actionsDiv {
+  /* visibility: hidden; */
+  z-index: 1;
+  font-weight: 900;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  display: none;
+}
+.noteRow:hover > #actionsDiv {
+  /* visibility: visible; */
+  display: flex;
+}
+/* This will be activated when the copiedButton's class is 'show' which will be added through JS */
+#copiedButton.show,
+#deleteConfirmation.show,
+#editConformation.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations for fading in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.gradientText {
+  background: linear-gradient(
+    90deg,
+    rgb(4, 238, 81) 0%,
+    rgb(14, 38, 181) 53%,
+    rgb(40, 1, 181) 60%,
+    rgb(140, 38, 81) 100%
+  );
+  /* background: gold; */
+  color: black;
+  -webkit-text-stroke: 0.2rem transparent;
+  -webkit-background-clip: text;
+  font-weight: 100;
+  font-size: 3rem;
+}
+.editAndNewForm {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding-top: 15vh;
+}
+::-webkit-scrollbar {
+  width: 2vh;
+}
+::-webkit-scrollbar-button {
+  background: #151b29;
+  height: 1vh;
+}
+::-webkit-scrollbar-thumb {
+  background: #151b29;
+  border: 0.4vh #04ee51 solid;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: #2f4f4f;
+}
